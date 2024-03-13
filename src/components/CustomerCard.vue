@@ -6,11 +6,11 @@
  
 <!---------Composant entête fiche----------------------->      
             <div id="card-header-comp">
-                <customer-card-Header soNo="000001" soDesc="client Gérald" pageTitle="Fiche client" />
+                <Customer-Card-Header   :soNo="customerCardId" :soDesc="CustomerCard.Name" pageTitle="Fiche client" />
             </div>
             
 <!---------Composant rubban fiche client----------------------->      
-            <customer-card-ribbon></customer-card-ribbon>
+            <Customer-card-ribbon></Customer-card-ribbon>
 
 <!---------Section formulaire fiche client----------------------->      
             <div id="content-comp" class="columns mt-2" style="overflow-y: scroll;">
@@ -20,10 +20,10 @@
                     <div id="general">
                         <div class="columns has-border-bottom">
                             <div class="column p-0 has-text-left has-text-weight-bold">
-                                <a @click="collapse('general_content');onglet1_expanded=!onglet1_expanded" v-if="onglet1_expanded">
+                                <a @click="collapse('general_content');onglet1_expanded=!onglet1_expanded" v-if="!onglet1_expanded">
                                     <span>Général</span>
                                 </a>
-                                <a @click="expand('general_content');onglet1_expanded=!onglet1_expanded" v-if="!onglet1_expanded">
+                                <a @click="expand('general_content');onglet1_expanded=!onglet1_expanded" v-if="onglet1_expanded">
                                     <span>Général</span>
                                     <span class="icon">
                                         <i class="fas fa-angle-right"></i>
@@ -34,24 +34,14 @@
                         </div>
                         <div id="general_content" class="columns">
                             <div class="column">
-                                <input-text labelInputText="N° client" valueInputText="soHeader['Code client']" ></input-text>
-                                <input-text labelInputText="Nom du client" valueInputText="soHeader['Nom du client']" ></input-text>
-                                <input-text labelInputText="Contact" valueInputText="soHeader['Contact client']" ></input-text>
-                                <input-text labelInputText="Adresse" valueInputText="soHeader['Adresse du client']" ></input-text>
-                                <input-text labelInputText="Ville" valueInputText="soHeader['Ville du client']" ></input-text>
-                                <input-text labelInputText="Code postal" valueInputText="soHeader['Code postal client']" ></input-text>
-                                <input-text labelInputText="Code pays/région" valueInputText="soHeader['Code région client']" ></input-text>
-                                <input-text labelInputText="Code vendeur" valueInputText="soHeader['Code vendeur']" ></input-text>
+                                <input-text labelInputText="N°" :valueInputText="CustomerCard['No_']" :is_disabled="readOnlyMode" ></input-text>
+                                <input-text labelInputText="Nom" :valueInputText="CustomerCard['Name']" :is_disabled="readOnlyMode"></input-text>
+                                <input-text labelInputText="Solde DS" :valueInputText="CustomerCard['Balance Amount']" :is_disabled="readOnlyMode"></input-text>  
                             </div>
                             <div class="column">
-                                <input-text labelInputText="Date commande" valueInputText="new Date(soHeader['Date de commande']).toDateString()" ></input-text>
-                                <input-text labelInputText="Date comptabilisation " valueInputText="new Date(soHeader['Date comptabilisation']).toDateString()" ></input-text>
-                                <input-text labelInputText="Date document" valueInputText="new Date(soHeader['Date document']).toDateString()" ></input-text>
-                                <input-text labelInputText="Date d'échéance" valueInputText="new Date(soHeader[`Date d'échéance`]).toDateString()" ></input-text>
-                                <input-text labelInputText="N° doc. externe" valueInputText="soHeader['N° doc. externe']" ></input-text>
-                                <input-text labelInputText="N° devis" valueInputText="soHeader['N° devis']" ></input-text>
-                                <input-text labelInputText="Utilisateur affecté" valueInputText="soHeader['Code utilisateur assigné']" ></input-text>
-                                <input-text labelInputText="Statut" valueInputText="soHeader['Statut']" ></input-text>
+                                <input-text labelInputText="Solde dû DS" :valueInputText="CustomerCard['Amount Due']" :is_disabled="readOnlyMode"></input-text>
+                                <input-text labelInputText="Code vendeur" :valueInputText="CustomerCard['Salesperson Code']" :is_disabled="readOnlyMode"></input-text>
+
                             </div>
                         </div>                    
                     </div>
@@ -75,24 +65,16 @@
                         </div>
                         <div id="address_content" class="columns">
                             <div class="column">
-                                <input-text labelInputText="N° client" valueInputText="soHeader['Code client']" ></input-text>
-                                <input-text labelInputText="Nom du client" valueInputText="soHeader['Nom du client']" ></input-text>
-                                <input-text labelInputText="Contact" valueInputText="soHeader['Contact client']" ></input-text>
-                                <input-text labelInputText="Adresse" valueInputText="soHeader['Adresse du client']" ></input-text>
-                                <input-text labelInputText="Ville" valueInputText="soHeader['Ville du client']" ></input-text>
-                                <input-text labelInputText="Code postal" valueInputText="soHeader['Code postal client']" ></input-text>
-                                <input-text labelInputText="Code pays/région" valueInputText="soHeader['Code région client']" ></input-text>
-                                <input-text labelInputText="Code vendeur" valueInputText="soHeader['Code vendeur']" ></input-text>
+                                <input-text labelInputText="Adresse" :valueInputText="CustomerCard['Address']" :is_disabled="readOnlyMode" ></input-text>
+                                <input-text labelInputText="Adresse (2ième ligne)" :valueInputText="CustomerCard['Address 2']" :is_disabled="readOnlyMode"></input-text>
+                                <input-text labelInputText="Ville" :valueInputText="CustomerCard['City']" :is_disabled="readOnlyMode"></input-text>
+                                
+                                
                             </div>
                             <div class="column">
-                                <input-text labelInputText="Date commande" valueInputText="new Date(soHeader['Date de commande']).toDateString()" ></input-text>
-                                <input-text labelInputText="Date comptabilisation " valueInputText="new Date(soHeader['Date comptabilisation']).toDateString()" ></input-text>
-                                <input-text labelInputText="Date document" valueInputText="new Date(soHeader['Date document']).toDateString()" ></input-text>
-                                <input-text labelInputText="Date d'échéance" valueInputText="new Date(soHeader[`Date d'échéance`]).toDateString()" ></input-text>
-                                <input-text labelInputText="N° doc. externe" valueInputText="soHeader['N° doc. externe']" ></input-text>
-                                <input-text labelInputText="N° devis" valueInputText="soHeader['N° devis']" ></input-text>
-                                <input-text labelInputText="Utilisateur affecté" valueInputText="soHeader['Code utilisateur assigné']" ></input-text>
-                                <input-text labelInputText="Statut" valueInputText="soHeader['Statut']" ></input-text>
+                                <input-text labelInputText="N° téléphone" :valueInputText="CustomerCard['Phone No_']" :is_disabled="readOnlyMode"></input-text>
+                                <input-text labelInputText="Code langue " :valueInputText="CustomerCard['Language Code']" :is_disabled="readOnlyMode"></input-text>
+                                <input-text labelInputText="Nom contact" :valueInputText="CustomerCard['Contact']" :is_disabled="readOnlyMode"></input-text>
                             </div>
                         </div>                    
                     </div>
@@ -116,24 +98,18 @@
                         </div>
                         <div id="invoicing_content" class="columns">
                             <div class="column">
-                                <input-text labelInputText="N° client" valueInputText="soHeader['Code client']" ></input-text>
-                                <input-text labelInputText="Nom du client" valueInputText="soHeader['Nom du client']" ></input-text>
-                                <input-text labelInputText="Contact" valueInputText="soHeader['Contact client']" ></input-text>
-                                <input-text labelInputText="Adresse" valueInputText="soHeader['Adresse du client']" ></input-text>
-                                <input-text labelInputText="Ville" valueInputText="soHeader['Ville du client']" ></input-text>
-                                <input-text labelInputText="Code postal" valueInputText="soHeader['Code postal client']" ></input-text>
-                                <input-text labelInputText="Code pays/région" valueInputText="soHeader['Code région client']" ></input-text>
-                                <input-text labelInputText="Code vendeur" valueInputText="soHeader['Code vendeur']" ></input-text>
+                                <input-text labelInputText="Code devise" :valueInputText="CustomerCard['Currency Code']" :is_disabled="readOnlyMode"></input-text>
+                                <input-text labelInputText="Code remise facture" :valueInputText="CustomerCard['No_']" :is_disabled="readOnlyMode"></input-text>
+                                <input-text labelInputText="Groupe compta. marché" :valueInputText="CustomerCard['Gen_ Bus_ Posting Group']" :is_disabled="readOnlyMode"></input-text>
+                                
+                                
+                               
                             </div>
                             <div class="column">
-                                <input-text labelInputText="Date commande" valueInputText="new Date(soHeader['Date de commande']).toDateString()" ></input-text>
-                                <input-text labelInputText="Date comptabilisation " valueInputText="new Date(soHeader['Date comptabilisation']).toDateString()" ></input-text>
-                                <input-text labelInputText="Date document" valueInputText="new Date(soHeader['Date document']).toDateString()" ></input-text>
-                                <input-text labelInputText="Date d'échéance" valueInputText="new Date(soHeader[`Date d'échéance`]).toDateString()" ></input-text>
-                                <input-text labelInputText="N° doc. externe" valueInputText="soHeader['N° doc. externe']" ></input-text>
-                                <input-text labelInputText="N° devis" valueInputText="soHeader['N° devis']" ></input-text>
-                                <input-text labelInputText="Utilisateur affecté" valueInputText="soHeader['Code utilisateur assigné']" ></input-text>
-                                <input-text labelInputText="Statut" valueInputText="soHeader['Statut']" ></input-text>
+                                <input-text labelInputText="Groupe compta. marché TVA" :valueInputText="CustomerCard['VAT Bus_ Posting Group']" :is_disabled="readOnlyMode"></input-text>
+                                <input-text labelInputText="Groupe compta. client" :valueInputText="CustomerCard['Customer Posting Group']" :is_disabled="readOnlyMode"></input-text>
+                                <input-text labelInputText="Groupe prix client" :valueInputText="CustomerCard['Customer Price Group']" :is_disabled="readOnlyMode"></input-text>
+                                
                             </div>
                         </div>                    
                     </div>
@@ -157,24 +133,14 @@
                         </div>
                         <div id="cash_content" class="columns">
                             <div class="column">
-                                <input-text labelInputText="N° client" valueInputText="soHeader['Code client']" ></input-text>
-                                <input-text labelInputText="Nom du client" valueInputText="soHeader['Nom du client']" ></input-text>
-                                <input-text labelInputText="Contact" valueInputText="soHeader['Contact client']" ></input-text>
-                                <input-text labelInputText="Adresse" valueInputText="soHeader['Adresse du client']" ></input-text>
-                                <input-text labelInputText="Ville" valueInputText="soHeader['Ville du client']" ></input-text>
-                                <input-text labelInputText="Code postal" valueInputText="soHeader['Code postal client']" ></input-text>
-                                <input-text labelInputText="Code pays/région" valueInputText="soHeader['Code région client']" ></input-text>
-                                <input-text labelInputText="Code vendeur" valueInputText="soHeader['Code vendeur']" ></input-text>
+                                <input-text labelInputText="Type partenaire" :valueInputText="CustomerCard['Partner Type']==0 ? 'Societe':'Personne'" :is_disabled="readOnlyMode"></input-text>
+                                <input-text labelInputText="Code conditions paiement" :valueInputText="CustomerCard['Payment Terms Code']" :is_disabled="readOnlyMode"></input-text>
+                                <input-text labelInputText="Code mode de règlement" :valueInputText="CustomerCard['Payment Method Code']" :is_disabled="readOnlyMode"></input-text>
+                               
                             </div>
                             <div class="column">
-                                <input-text labelInputText="Date commande" valueInputText="new Date(soHeader['Date de commande']).toDateString()" ></input-text>
-                                <input-text labelInputText="Date comptabilisation " valueInputText="new Date(soHeader['Date comptabilisation']).toDateString()" ></input-text>
-                                <input-text labelInputText="Date document" valueInputText="new Date(soHeader['Date document']).toDateString()" ></input-text>
-                                <input-text labelInputText="Date d'échéance" valueInputText="new Date(soHeader[`Date d'échéance`]).toDateString()" ></input-text>
-                                <input-text labelInputText="N° doc. externe" valueInputText="soHeader['N° doc. externe']" ></input-text>
-                                <input-text labelInputText="N° devis" valueInputText="soHeader['N° devis']" ></input-text>
-                                <input-text labelInputText="Utilisateur affecté" valueInputText="soHeader['Code utilisateur assigné']" ></input-text>
-                                <input-text labelInputText="Statut" valueInputText="soHeader['Statut']" ></input-text>
+                                <input-text labelInputText="Solde DS" :valueInputText="CustomerCard['Balance Amount']" :is_disabled="readOnlyMode"></input-text>
+                                <input-text labelInputText="Montant net DS" :valueInputText="CustomerCard['Balance Amount']" :is_disabled="readOnlyMode"></input-text>
                             </div>
                         </div>                    
                     </div>
@@ -198,31 +164,16 @@
                         </div>
                         <div id="delivery_content" class="columns">
                             <div class="column">
-                                <input-text labelInputText="N° client" valueInputText="soHeader['Code client']" ></input-text>
-                                <input-text labelInputText="Nom du client" valueInputText="soHeader['Nom du client']" ></input-text>
-                                <input-text labelInputText="Contact" valueInputText="soHeader['Contact client']" ></input-text>
-                                <input-text labelInputText="Adresse" valueInputText="soHeader['Adresse du client']" ></input-text>
-                                <input-text labelInputText="Ville" valueInputText="soHeader['Ville du client']" ></input-text>
-                                <input-text labelInputText="Code postal" valueInputText="soHeader['Code postal client']" ></input-text>
-                                <input-text labelInputText="Code pays/région" valueInputText="soHeader['Code région client']" ></input-text>
-                                <input-text labelInputText="Code vendeur" valueInputText="soHeader['Code vendeur']" ></input-text>
+                                <input-text labelInputText="Code magasin" :valueInputText="CustomerCard['Location Code']" :is_disabled="readOnlyMode"></input-text>
                             </div>
                             <div class="column">
-                                <input-text labelInputText="Date commande" valueInputText="new Date(soHeader['Date de commande']).toDateString()" ></input-text>
-                                <input-text labelInputText="Date comptabilisation " valueInputText="new Date(soHeader['Date comptabilisation']).toDateString()" ></input-text>
-                                <input-text labelInputText="Date document" valueInputText="new Date(soHeader['Date document']).toDateString()" ></input-text>
-                                <input-text labelInputText="Date d'échéance" valueInputText="new Date(soHeader[`Date d'échéance`]).toDateString()" ></input-text>
-                                <input-text labelInputText="N° doc. externe" valueInputText="soHeader['N° doc. externe']" ></input-text>
-                                <input-text labelInputText="N° devis" valueInputText="soHeader['N° devis']" ></input-text>
-                                <input-text labelInputText="Utilisateur affecté" valueInputText="soHeader['Code utilisateur assigné']" ></input-text>
-                                <input-text labelInputText="Statut" valueInputText="soHeader['Statut']" ></input-text>
+                                <input-text labelInputText="Code" :valueInputText="CustomerCard['Shipment Method Code']" :is_disabled="readOnlyMode"></input-text>
                             </div>
                         </div>                    
                     </div>
                     <br><br>
 
                 </div>
-
 <!---------composant info client----------------------->
                 <customer-info id="customer-info"></customer-info>
 
@@ -230,20 +181,33 @@
         </div>
 
     </div>    
+
 </template>
 <script>
 import CustomerCardHeader from './HeaderForCard.vue'
 import CustomerInfo from './CustomerInfo.vue'
 import CustomerCardRibbon from './RibbonForCard.vue'
 import inputText from './input/input-text.vue'
+import axios from 'axios'
+import { ref } from 'vue'
 
 export default {
     name:'customer-card',
     components:{
         CustomerCardHeader,CustomerInfo,inputText,CustomerCardRibbon
     },
+    setup(){
+        const CustomerCard = ref({})
+        const readOnlyMode = ref(true)
+        // expose to template and other options API hooks
+        return {
+            CustomerCard,readOnlyMode
+        }
+    },
     data(){
         return{
+            //indique la route active
+            customerCardId:this.$route.params.id,
 
             //indique si les onglets sont réduits ou non
             onglet1_expanded:true,
@@ -254,6 +218,11 @@ export default {
         }
     },
     methods:{
+        formatDate(date){
+            const dateString = new String(date)
+            if (dateString.includes('1753-')) return ''
+            else return new Date(date).toLocaleDateString()
+        },
         expand(id){
             const myElt=document.getElementById(id);
             myElt.style.maxHeight='500px'
@@ -264,7 +233,18 @@ export default {
             console.log(myElt.style.maxHeight)
             myElt.style.maxHeight="0px"
         }
-    }
+    },
+    mounted(){
+        axios.get(`http://localhost:3000/app/getCustomerCard/${this.customerCardId}`)
+        .then(result => {
+            this.CustomerCard = result.data.recordset[0],
+            console.log(this.CustomerCard.Name)
+            //this.saleQuoteCardLines = result.data[1]
+            console.log(this.customerCardId)
+
+        }).catch(err=>console.log(err))
+
+    },
 }
 
 </script>

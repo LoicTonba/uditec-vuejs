@@ -9,59 +9,64 @@
                 <table class="table  is-narrow is-hoverable is-fullwidth">
                     <thead class=" my-2">
                         <tr> 
-                            <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;" > Type</th>
                             <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">N°</th>
+
+                            <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;" > Type</th>
+                            
                             <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Description</th>
-                            <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Code magasin</th>
-                            <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Quantité</th>
-                            <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Code unité</th>
-                            <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Prix unitaire HT</th>
-                            <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">% remise ligne</th>
-                            <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Montant ligne HT</th>
-                            <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Montant ligne HT</th>
-                            <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Montant ligne HT</th>
-                            <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Montant ligne HT</th>
-                            <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Montant ligne HT</th>
-                            <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Montant ligne HT</th>
-                            <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Montant ligne HT</th>
-                            <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Montant ligne HT</th>
-                            <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Montant ligne HT</th>
-                            <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Montant ligne HT</th>
-                            <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Montant ligne HT</th>
-                            <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Montant ligne HT</th>
-                            <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Montant ligne HT</th>
+
+                            <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Bloque</th>
+
+                            <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Unité de mesure de base</th>
+
+                            <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Unité de mesure de vente</th>
+
+                            <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Code de catégorie d'article </th>
+
+                            <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Code de groupe de produit</th>
+
+                            <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Product Group Code</th>
                         </tr>   
                     </thead>
                     <tbody>
-                        <tr id="" v-for="elt of [1,2,3,4,5,6,7,8,9,11,10,12,13,14,145,14,1,1,1,4,4,4,44,4,7]" :key="elt">
-                            <td class="has-text-left has-background-light"> salut</td>
-                            <td class="has-text-left has-background-light"> salut</td>
-                            <td class="has-text-left has-background-light"> salut</td>
-                            <td class="has-text-left has-background-light"> slaut</td>
-                            <td class="has-text-left has-background-light"> slaut</td>
-                            <td class="has-text-left has-background-light"> slaut</td>                
-                            <td class="has-text-left has-background-light"> slaut</td>                
-                            <td class="has-text-left has-background-light"> slaut</td>                
-                            <td class="has-text-left has-background-light"> slaut</td>                
-                            <td class="has-text-left has-background-light"> slaut</td>                
-                            <td class="has-text-left has-background-light"> slaut</td>                
-                            <td class="has-text-left has-background-light"> slaut</td>                
-                            <td class="has-text-left has-background-light"> slaut</td>                
-                            <td class="has-text-left has-background-light"> slaut</td>                
-                            <td class="has-text-left has-background-light"> slaut</td>                
-                            <td class="has-text-left has-background-light"> slaut</td>                
-                            <td class="has-text-left has-background-light"> slaut</td>                
-                            <td class="has-text-left has-background-light"> slaut</td>                
-                            <td class="has-text-left has-background-light"> slaut</td>                
-                            <td class="has-text-left has-background-light"> slaut</td>                
-                            <td class="has-text-left has-background-light"> slaut</td>                
+                        <tr id="" v-for="item of itemList" :key="item['No_']">
+                            <td class="has-text-left has-background-light"> 
+                                <router-link :to="`/ItemCard/${ item['No_'] }`">
+                                    <a href="#" class="has-text-orange">
+                                        {{ item['No_'] }} 
+                                    </a>
+                                </router-link>
+                            </td>
+
+                            <td class="has-text-left has-background-light"> {{item['No_']}}</td>
+
+                            <td class="has-text-left has-background-light"> {{item['Type']}}</td>
+
+                            <td class="has-text-left has-background-light"> {{item['Description']}}</td>
+
+                            
+                            <td class="has-text-left has-background-light"> {{item['Bloque']}}</td>
+
+
+                            <td class="has-text-left has-background-light"> {{item['Sales Unit of Measure']}}</td>
+
+                            <td class="has-text-left has-background-light"> {{item['Base Unit of Measure']}}</td>
+
+                            <td class="has-text-left has-background-light"> {{item['Sales Unit of Measure']}}</td>
+
+                            <td class="has-text-left has-background-light"> {{item['Item Category Code']}}</td>
+
+                            <td class="has-text-left has-background-light"> {{item['Search Description']}}</td>
+
+                              <td class="has-text-left has-background-light"> {{item['Product Group Code']}}</td>          
+                                            
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div class="column" style="overflow-y: scroll;" v-if="false">
+            <div class="column" style="overflow-y: scroll;" v-if="true">
                 <div class="columns is-multiline">
-                    <div class="column is-one-third" v-for="elt of [1,2,3,4,5,6,7,8,9,11,10,12,13,14,145,14,1,1,1,4,4,4,44,4,7]" :key="elt">
+                    <div class="column is-one-third"  v-for="item of itemList" :key="item['No_']">
                         <div class=" columns p-1 card-is-hoverable">
                             <div class="column is-narrow has-background-white">
                                 <figure class="image is-64x64">
@@ -70,22 +75,29 @@
                             </div>
                             <div class="column has-background-white card-is-hoverable">
                                 <p class="has-text-left ">
-                                    <span class="is-size-7 has-text-grey">100526</span>
+                                    <span class="is-size-7 has-text-grey has-background-light">
+                                            <router-link :to="`/ItemCard/${ item['No_'] }`">
+                                                <a href="#" class="has-text-orange">
+                                                    {{ item['No_'] }} 
+                                                </a>
+                                            </router-link>
+                                       
+                                    </span>
                                 </p>
                                 <div class="has-text-left columns">
                                     <div class="column has-text-left has-text-orange py-0 mt-1" >
-                                        <span class="is-size-7 is-underlined">Monsieur Gérald OK.</span>
+                                        <span class="is-size-7 is-underlined">{{item['Search Description']}}</span>
                                     </div>
                                     <div class="column has-text-right is-narrow py-0 mt-1">
-                                        <span class="is-size-7">100 225,45</span>
+                                        <span class="is-size-7">{{item['Description 2'] }}</span>
                                     </div>
                                 </div>
                                 <div class="has-text-left columns">
                                     <div class="column has-text-left py-0" >
-                                        <span class="is-size-7">Mr. BigBlackShaow</span>
+                                        <span class="is-size-7">{{ item['Description 2'] }}</span>
                                     </div>
                                     <div class="column has-text-right is-narrow py-0">
-                                        <span class="is-size-7">75 225,45</span>
+                                        <span class="is-size-7">{{item['Base Unit of Measure']}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -97,9 +109,9 @@
                     </div>
                 </div>
             </div>
-            <div class="column" style="overflow-y: scroll;" v-if="true">
+            <div class="column" style="overflow-y: scroll;" v-if="false">
                 <div class="columns is-multiline is-gapless">
-                    <div class="column is-3 p-2 " v-for="elt of [1,2,3,4,5,6,7,8,9,11,10,12,13,14,145,14,1,1,1,4,4,4,44,4,7]" :key="elt">
+                    <div class="column is-3 p-2 " v-for="item of itemList" :key="item['No_']">
                         <div class="has-background-white m-1">
                             <div class="card-is-hoverable box">
                                 <div class="">
@@ -116,22 +128,29 @@
                                     <hr class="rounded">
                                     <div class="">
                                         <p class="has-text-left ">
-                                            <span class="is-size-7 has-text-grey">100526</span>
+                                            <span class="is-size-7 has-text-grey has-background-light">
+                                                <router-link :to="`/ItemCard/${ item['No_'] }`">
+                                                    <a href="#" class="has-text-orange">
+                                                        {{ item['No_'] }} 
+                                                    </a>
+                                                </router-link>
+                                           
+                                        </span>
                                         </p>
                                         <div class="has-text-left columns">
                                             <div class="column has-text-left has-text-orange py-0 mt-1" >
-                                                <span class="is-size-7 is-underlined">Article 100000</span>
+                                                <span class="is-size-7 is-underlined">{{item['Search Description']}}</span>
                                             </div>
                                             <div class="column has-text-right is-narrow py-0 mt-1">
-                                                <span class="is-size-7">100 225,45</span>
+                                                <span class="is-size-7">{{ item['Item Category Code'] }}</span>
                                             </div>
                                         </div>
                                         <div class="has-text-left columns">
                                             <div class="column has-text-left py-0" >
-                                                <span class="is-size-7">Ordinateur portable</span>
+                                                <span class="is-size-7">{{ item['Description 2'] }}</span>
                                             </div>
                                             <div class="column has-text-right is-narrow py-0">
-                                                <span class="is-size-7">75 225,45</span>
+                                                <span class="is-size-7">{{item['Unit Volume']}}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -151,11 +170,28 @@
 <script>
 import ItemInfo from './ItemInfo.vue'
 import ItemListRibbon from './RibbonForLists.vue'
-
+import axios from 'axios'
+import { ref } from 'vue'
 export default {
     name:'item-list',
     components:{
         ItemInfo,ItemListRibbon
+    },
+    setup() {
+    const itemList= ref([])
+    
+    // expose to template and other options API hooks
+        return {
+            itemList
+        }
+    },
+
+
+    mounted(){
+        axios.get(`http://localhost:3000/app/getItemList`)
+        .then(result => {
+            this.itemList=result.data.recordset
+        }).catch(err=>console.log(err))
     },
 }
 

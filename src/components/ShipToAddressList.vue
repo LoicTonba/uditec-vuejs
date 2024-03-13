@@ -20,41 +20,32 @@
                     <table class="table  is-narrow is-hoverable is-fullwidth">
                         <thead class=" my-2">
                             <tr> 
-                                <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;" > No</th>
+                                <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;" > Code</th>
                                 <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Nom</th>
                                 <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Ville</th>
-                                <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Telephone</th>
-                                <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Pays</th>
-                                <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Address</th>
-                                <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Email</th>
-                                <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Nom de campagnie</th>
-                               
+                                <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Code magasin</th>     
                             </tr>   
                         </thead>
                         <tbody>
-                            <tr v-for="contact in contactList" :key="contact['No_']">
+                            <tr id="" v-for="shiptoaddress of shiptoaddressList" :key="shiptoaddress['Code']">
                                 <td class="has-text-left has-background-light"> 
-                                    <router-link :to="`/ContactCard/${ contact['No_'] }`">
+                                    <router-link :to="`/ShipToAddressCard/${ shiptoaddress['Code'] }`">
                                         <a href="#" class="has-text-orange">
-                                            {{ contact['No_'] }} 
+                                            {{shiptoaddress['Code'] }}
                                         </a>
                                     </router-link>
                                 </td>
-                    
-                                <td class="has-text-left has-background-light">{{contact['Name']}}</td>
-                                <td class="has-text-left has-background-light">{{contact['City']}}</td>
-                                <td class="has-text-left has-background-light">{{contact['Phone No_']}}</td>
-                                <td class="has-text-left has-background-light">{{contact['County']}}</td>
-                                <td class="has-text-left has-background-light">{{contact['Address']}}</td>
-                                <td class="has-text-left has-background-light">{{contact['E-Mail']}}</td>
-                                <td class="has-text-left has-background-light">{{contact['Company Name']}}</td>
+                                <td class="has-text-left has-background-light"> {{ shiptoaddress['Name'] }}</td>
+                                <td class="has-text-left has-background-light"> {{ shiptoaddress['City'] }}</td>
+                                <td class="has-text-left has-background-light"> {{ shiptoaddress['Location Code'] }}</td>               
+                                              
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="column"  v-if="false">
                     <div class="columns is-multiline">
-                        <div class="column is-3" id="" v-for="contact of contactList" :key="contact['No_']">
+                        <div class="column is-3" v-for="shiptoaddress of shiptoaddressList" :key="shiptoaddress['Code']">
                             <div class=" columns p-1 card-is-hoverable">
                                 <div class="column is-narrow has-background-white">
                                     <figure class="image is-64x64">
@@ -63,29 +54,22 @@
                                 </div>
                                 <div class="column has-background-white card-is-hoverable">
                                     <p class="has-text-left ">
-                                        <span class="is-size-7 has-text-grey has-background-light">
-                                                <router-link :to="`/ContactCard/${ contact['No_'] }`">
-                                                    <a href="#" class="has-text-orange">
-                                                        {{ contact['No_'] }} 
-                                                    </a>
-                                                </router-link>
-                                           
-                                        </span>
+                                        <span class="is-size-7 has-text-grey">{{ shiptoaddress['Code']  }}</span>
                                     </p>
                                     <div class="has-text-left columns">
                                         <div class="column has-text-left has-text-orange py-0 mt-1" >
-                                            <span class="is-size-7 is-underlined">{{contact['Name']}}</span>
+                                            <span class="is-size-7 is-underlined">{{ shiptoaddress['Name']  }}</span>
                                         </div>
                                         <div class="column has-text-right is-narrow py-0 mt-1">
-                                            <span class="is-size-7">{{contact['City']}}</span>
+                                            <span class="is-size-7">{{ shiptoaddress['Contact']  }}</span>
                                         </div>
                                     </div>
                                     <div class="has-text-left columns">
                                         <div class="column has-text-left py-0" >
-                                            <span class="is-size-7">{{contact['Phone No_']}}</span>
+                                            <span class="is-size-7">{{ shiptoaddress['city']  }}</span>
                                         </div>
                                         <div class="column has-text-right is-narrow py-0">
-                                            <span class="is-size-7">{{contact['Adress']}}</span>
+                                            <span class="is-size-7">75 225,45</span>
                                         </div>
                                     </div>
                                 </div>
@@ -99,7 +83,7 @@
                 </div>
                 <div class="column" v-if="false">
                     <div class="columns is-multiline is-gapless">
-                        <div class="column is-2 p-2 "  v-for="contact of contactList" :key="contact['No_']">
+                        <div class="column is-2 p-2 " v-for="shiptoaddress of shiptoaddressList" :key="shiptoaddress['Code']">
                             <div class="has-background-white m-1">
                                 <div class="card-is-hoverable box">
                                     <div class="">
@@ -116,29 +100,22 @@
                                         <hr class="rounded">
                                         <div class="">
                                             <p class="has-text-left ">
-                                                <span class="is-size-7 has-text-grey has-background-light">
-                                                        <router-link :to="`/ContactCard/${ contact['No_'] }`">
-                                                            <a href="#" class="has-text-orange">
-                                                                {{ contact['No_'] }} 
-                                                            </a>
-                                                        </router-link>
-                                                   
-                                                </span>
+                                                <span class="is-size-7 has-text-grey">{{ shiptoaddress['Code']  }}</span>
                                             </p>
                                             <div class="has-text-left columns">
                                                 <div class="column has-text-left has-text-orange py-0 mt-1" >
-                                                    <span class="is-size-7 is-underlined">{{contact['Name']}}</span>
+                                                    <span class="is-size-7 is-underlined">{{ shiptoaddress['Name']  }}</span>
                                                 </div>
                                                 <div class="column has-text-right is-narrow py-0 mt-1">
-                                                    <span class="is-size-7">{{contact['City']}}</span>
+                                                    <span class="is-size-7">{{ shiptoaddress['Contact']  }}</span>
                                                 </div>
                                             </div>
                                             <div class="has-text-left columns">
                                                 <div class="column has-text-left py-0" >
-                                                    <span class="is-size-7"> {{contact['Adress']}}</span>
+                                                    <span class="is-size-7">{{ shiptoaddress['Address']  }}</span>
                                                 </div>
                                                 <div class="column has-text-right is-narrow py-0">
-                                                    <span class="is-size-7">{{contact['E-Mail']}}</span>
+                                                    <span class="is-size-7">{{ shiptoaddress['Address 2']  }}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -163,31 +140,23 @@ export default {
     components:{
         ContactListRibbon,ContactListHeader
     },
-    data(){
-        return{
-           
-        }
-    },
     setup() {
-    const contactList= ref([])
-    
+    const shiptoaddressList = ref([])
+
     // expose to template and other options API hooks
         return {
-            contactList,
+            shiptoaddressList
         }
     },
-
-
-    mounted() {
-  const companyId = 'CT000001'; // Remplacez 'votre_id_ici' par l'ID nécessaire
-  axios.get(`http://localhost:3000/app/getContactList/${companyId}`)
-    .then(result => {
-        this.contactList = result.data.recordset;
-        // console.log(this.contactList);
-        console.log(result.data);
-    })
-    .catch(err => console.log(err));
-}
+    mounted(){
+        axios.get(`http://localhost:3000/app/getShipToAddressList`)
+        .then((result) => {
+          this.shiptoaddressList = result.data.recordset;
+          console.log(result.data)
+        })
+        .catch(err=>console.log(err));
+      
+    }
 }
 
 </script>

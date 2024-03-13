@@ -18,6 +18,8 @@ import ProspectList from './components/ProspectList.vue'
 import ProspectCard from './components/ProspectCard.vue'
 import ContactList from './components/ContactList.vue'
 import ContactCard from './components/ContactCard.vue'
+import ShipToAddressList from './components/ShipToAddressList.vue'
+import ShipToAddressCard from './components/ShipToAddressCard.vue'
 
 import RevisionRequestList from './components/RevisionRequestList.vue'
 import RevisionRequestCard from './components/RevisionRequestCard.vue'
@@ -49,6 +51,8 @@ const routes = [
     {path:'/ProspectCard/:id',component:ProspectCard,name:'ProspectCardPage'},
     {path:'/ContactList/:id',component:ContactList,name:'ContactListPage'},
     {path:'/ContactCard/:id1/:id2',component:ContactCard,name:'ContactCardPage'},
+    {path:'/ShipToAddressList/:id',component:ShipToAddressList,name:'ShipToAddressListPage'},
+    {path:'/ShipToAddressCard/:id1/:id2',component:ShipToAddressCard,name:'ShipToAddressCardPage'},
     {path:'/RevisionRequestCard/:id',component:RevisionRequestCard,name:'RevisionRequestCardPage'},
     {path:'/RevisionRequestList',component:RevisionRequestList,name:'RevisionRequestListPage'},
     {path:'/DiscountRequestCard/:id',component:DiscountRequestCard,name:'DiscountRequestCardPage'},

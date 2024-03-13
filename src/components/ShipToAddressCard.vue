@@ -34,41 +34,17 @@
                         </div>
                         <div id="general_content" class="columns">
                             <div class="column">
-                                <input-text
-                                    labelInputText="No_"
-                                    :valueInputText="ContactCardHeader['No_']"
-                                    :is_disabled="readOnlyMode"
-                                ></input-text>
-                                    <input-text
-                                    labelInputText="Nom"
-                                    :valueInputText="ContactCardHeader['Name']"
-                                    :is_disabled="readOnlyMode"
-                                ></input-text>
-                                <input-text
-                                labelInputText="Adress"
-                                :valueInputText="ContactCardHeader['Adress']"
-                                :is_disabled="readOnlyMode"
-                            ></input-text>
-                          
-    
+                                <input-text labelInputText="N° client" valueInputText="soHeader['Code client']" ></input-text>
+                                <input-text labelInputText="Nom du client" valueInputText="soHeader['Nom du client']" ></input-text>
+                                <input-text labelInputText="Contact" valueInputText="soHeader['Contact client']" ></input-text>
+                                <input-text labelInputText="Adresse" valueInputText="soHeader['Adresse du client']" ></input-text>
+                                <input-text labelInputText="Ville" valueInputText="soHeader['Ville du client']" ></input-text>
                             </div>
                             <div class="column">
-                                <!-- <input-text
-                                labelInputText="Email"
-                                :valueInputText="ContactCardHeader['E-Mail']"
-                                :is_disabled="readOnlyMode"
-                            ></input-text>
-                            <input-text
-                            labelInputText="Nom de la compagnie"
-                            :valueInputText="ContactCardHeader['Company Name']"
-                            :is_disabled="readOnlyMode"
-                        ></input-text>
-                        <input-text
-                        labelInputText="Relation business"
-                        :valueInputText="ContactCardHeader['Business Relation']"
-                        :is_disabled="readOnlyMode"
-                    ></input-text>
-                    -->
+                                <input-text labelInputText="Date commande" valueInputText="new Date(soHeader['Date de commande']).toDateString()" ></input-text>
+                                <input-text labelInputText="Date comptabilisation " valueInputText="new Date(soHeader['Date comptabilisation']).toDateString()" ></input-text>
+                                <input-text labelInputText="Date document" valueInputText="new Date(soHeader['Date document']).toDateString()" ></input-text>
+                                <input-text labelInputText="Date d'échéance" valueInputText="new Date(soHeader[`Date d'échéance`]).toDateString()" ></input-text>
                             </div>
                         </div>                    
                     </div>
@@ -100,18 +76,18 @@
                             <table class="table  is-narrow is-hoverable is-fullwidth">
                                 <thead class=" my-2">
                                     <tr> 
-                                        <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;" >Interaction</th>
-                                        <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Code Vendeur</th>
+                                        <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;" > Type</th>
+                                        <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">N°</th>
                                         <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Description</th>
-                                        <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Document join</th>
-                                        <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Commentaire</th>
-                                        <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">No_ oportunite</th>
-                                        <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">N compagnie</th>
-                                        <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Date</th>
+                                        <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Code magasin</th>
+                                        <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Quantité</th>
+                                        <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Code unité</th>
+                                        <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">Prix unitaire HT</th>
+                                        <th class="has-background-light has-text-grey has-text-left has-text-weight-normal is-size-7" style="min-width: 100px;">% remise ligne</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr id="" v-for="ConctactCard of  ContactCardHeader" :key="ConctactCard">
+                                    <tr id="" v-for="elt of [1,2,3,4,5,6,7,8,9,11,10,12,13,14,145,14,1,1,1,4,4,4,44,4,7]" :key="elt">
                                         <td class="has-text-left has-background-light"> salut</td>
                                         <td class="has-text-left has-background-light"> salut</td>
                                         <td class="has-text-left has-background-light"> salut</td>
@@ -192,10 +168,6 @@
                     <br><br>
 
                 </div>
-
-<!---------composant info client----------------------->
-                <customer-info id="contact-info"></customer-info>
-
             </div>
         </div>
 
@@ -205,29 +177,15 @@
 import ContactCardHeader from './HeaderForCard.vue'
 import ContactCardRibbon from './RibbonForCard.vue'
 import inputText from './input/input-text.vue'
-import CustomerInfo from './CustomerInfo.vue'
-import axios from "axios";
-import { ref } from "vue";
+
 export default {
-    name:'sale-order-card',
+    name:'ship-to-address-card',
     components:{
-        ContactCardHeader,inputText,ContactCardRibbon,CustomerInfo
+        ContactCardHeader,inputText,ContactCardRibbon
     },
-    setup() {
-    const ContactCardHeader = ref({});
-
-    const readOnlyMode = ref(true);
-
-    // expose to template and other options API hooks
-    return {
-        ContactCardHeader,
-      readOnlyMode,
-    };
-  },
-
     data(){
         return{
-            contactCardId: this.$route.params.id,
+
             //indique si les onglets sont réduits ou non
             onglet1_expanded:true,
             onglet2_expanded:true,
@@ -247,17 +205,8 @@ export default {
             console.log(myElt.style.maxHeight)
             myElt.style.maxHeight="0px"
         }
-    },
-    mounted() {
-    axios
-      .get(`http://localhost:3000/app/getContactCard/${this.itemCardId}`)
-      .then((result) => {
-        this.ContactCardHeader = result.data.recordset[0];
-        console.log(this.itemCardHeader.Description);
-        console.log(this.itemCardId);
-      })
-      .catch((err) => console.error(err));
-  },
+    }
+
 }
 </script>
 <style scoped>
